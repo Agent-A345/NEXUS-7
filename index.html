@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="description" content="NEXUS-7: An interactive horror sci-fi story game">
+<title>NEXUS-7 | Dark Choices</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- Name Screen -->
+  <div id="name-screen" class="screen active" role="main" aria-label="Character creation">
+    <div class="name-container">
+      <div class="glitch-logo" data-text="NEXUS-7">NEXUS-7</div>
+      <p class="subtitle">ABANDONED RESEARCH FACILITY — SECTOR 7</p>
+      <p class="intro-text">You wake up. You don't know why. You don't know how long you've been here. But something is very wrong.</p>
+      <div class="name-form">
+        <label for="player-name" class="sr-only">Enter your name</label>
+        <input type="text" id="player-name" placeholder="ENTER YOUR NAME" maxlength="20" autocomplete="off" spellcheck="false">
+        <button id="start-btn" class="btn-primary" aria-label="Begin the game">INITIALIZE</button>
+      </div>
+      <div id="resume-section" class="resume-section hidden">
+        <p class="resume-text">SAVE DATA DETECTED</p>
+        <button id="resume-btn" class="btn-secondary">RESUME PREVIOUS RUN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen" class="screen" role="main" aria-label="Game area">
+
+    <!-- Top Bar -->
+    <header class="top-bar" role="banner">
+      <div class="stats-group" aria-label="Player statistics">
+        <div class="stat-block">
+          <span class="stat-label">HP</span>
+          <div class="stat-bar-wrap" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Health">
+            <div class="stat-bar health-bar" id="health-bar"></div>
+          </div>
+          <span class="stat-num" id="health-num">100</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">INT</span>
+          <div class="stat-bar-wrap" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Intelligence">
+            <div class="stat-bar intel-bar" id="intel-bar"></div>
+          </div>
+          <span class="stat-num" id="intel-num">50</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">TRUST</span>
+          <div class="stat-bar-wrap" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Trust">
+            <div class="stat-bar trust-bar" id="trust-bar"></div>
+          </div>
+          <span class="stat-num" id="trust-num">50</span>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="save-btn" class="btn-icon" aria-label="Save game" title="Save">&#9731;</button>
+        <button id="restart-btn" class="btn-icon" aria-label="Restart game" title="Restart">&#8635;</button>
+        <button id="mute-btn" class="btn-icon" aria-label="Toggle sound" title="Sound">&#9836;</button>
+      </div>
+    </header>
+
+    <!-- Inventory Bar -->
+    <div class="inventory-bar" id="inventory-bar" aria-label="Inventory" role="region">
+      <span class="inv-label">INV:</span>
+      <div id="inventory-slots" class="inventory-slots"></div>
+    </div>
+
+    <!-- Scene Area -->
+    <main class="scene-area" id="scene-area" role="region" aria-live="polite" aria-label="Story area">
+      <div class="scene-overlay" id="scene-overlay"></div>
+      <div class="scene-content">
+        <div class="scene-tag" id="scene-tag"></div>
+        <div class="story-text" id="story-text" aria-live="polite"></div>
+        <div class="npc-dialogue" id="npc-dialogue" aria-live="polite"></div>
+      </div>
+    </main>
+
+    <!-- Choices -->
+    <section class="choices-section" id="choices-section" aria-label="Your choices">
+      <div id="choices-container" class="choices-container" role="group" aria-label="Available choices"></div>
+      <div id="ending-box" class="ending-box hidden" aria-live="polite"></div>
+    </section>
+
+    <!-- Keyboard hint -->
+    <div class="kb-hint" aria-hidden="true">Press 1–4 to choose · SPACE to skip typewriter</div>
+  </div>
+
+  <!-- Transition Overlay -->
+  <div id="transition-overlay" class="transition-overlay" aria-hidden="true"></div>
+
+  <!-- Notification -->
+  <div id="notification" class="notification" role="status" aria-live="polite"></div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
