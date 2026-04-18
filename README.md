@@ -33,7 +33,7 @@ NEXUS-7/
 ## 🛠️ How to Run
 1. **Clone the repository**:
 ```
-git clone https://github.com/Agent-A345/NEXUS7.git
+git clone https://github.com/Agent-A345/NEXUS-7.git
 
 ```
 2. **Open the project and navigate to the file**:
